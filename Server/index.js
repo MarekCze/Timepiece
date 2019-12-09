@@ -286,7 +286,7 @@ app.get('/products', (req, res) => {
         
         try{
             res.json({
-                products: products
+                product: products
             });         
         } catch (err){
             console.log(error)

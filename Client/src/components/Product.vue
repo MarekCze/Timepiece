@@ -1,8 +1,8 @@
 <template>
     <div class="wrapper">
-      <div class="product" v-for="(product, prodIndex) in products" :key="prodIndex">
-        <h1>{{product[0].brand}}</h1>
-        <h2>{{product[0].model}}</h2>
+      <div class="product" v-for="(prod, index) in products.product" :key="index">
+        <h1>{{prod.brand}}</h1>
+        <h2>{{prod.model}}</h2>
       </div>
     </div>
 </template>

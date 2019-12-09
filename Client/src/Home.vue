@@ -1,6 +1,6 @@
 <template>
 <main id="home">
-  <product v-bind:prodIndex='3'></product>
+  <product></product>
 </main>
 </template>
 
