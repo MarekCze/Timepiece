@@ -3,7 +3,7 @@
     <h1>Watches</h1>
     This file will list all the watches.
 
-    <div v-for="watch in watches" v-bind:key="watch">
+    <div v-for="watch in watches" v-bind:key="watch.brand">
       <p>
         <span><b>{{ watch.brand }}</b></span><br />
         <span>{{ watch.description }}</span>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import watchService from '../../services/watchService.js'
+import watchService from '@/services/watchService.js'
 export default {
   name: 'watches',
   data () {
