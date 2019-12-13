@@ -282,8 +282,7 @@ app.get('/watches', (req, res) => {
 });
 
 app.get('/products', (req, res) => {
-    Product.find({}, function (err, products) {
-        
+    Product.find({}, function (err, products) {       
         try{
             res.json({
                 product: products
@@ -292,8 +291,7 @@ app.get('/products', (req, res) => {
             console.log(error)
             return res.json('500')
         }
-        })
-        
+    })       
 });
 
 // 404 catch-all handler (middleware)
