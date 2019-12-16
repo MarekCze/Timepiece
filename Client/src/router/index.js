@@ -27,9 +27,10 @@ export default new Router({
       component: Product
     },
     {
-      path: '/home',
+      path: '/home/:productId',
       name: 'Home',
-      component: Home
+      component: Home,
+      props: true
     }
   ]
 })

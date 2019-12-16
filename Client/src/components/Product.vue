@@ -6,7 +6,7 @@
           <h2>{{product.model}}</h2>
         </div>
         <div class="product-image">
-          <img v-bind:src="'@/assets/img/' + getImage(product)" />
+          <img :src='getImage(product)'/>
         </div>
         <div class="product-info">
           <div class="color-box"
@@ -23,6 +23,7 @@
 import ProductService from '@/services/ProductService'
 export default {
   name: 'products',
+  props: ['productId'],
   data () {
     return {
       products: []
@@ -45,7 +46,7 @@ export default {
       this.SelectedVariant = index
     },
     getImage (product) {
-      console.log('assets/img/' + product.variant[product.SelectedVariant].variantImage)
+      console.log(product.variant[product.SelectedVariant].variantImage)
       return product.variant[product.SelectedVariant].variantImage
     },
     showProducts () {
