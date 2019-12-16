@@ -5,7 +5,21 @@
           <h1>{{product.brand}}</h1>
           <h2>{{product.model}}</h2>
         </div>
-          <img :src="getImage(product.variant[0].variantImage)">
+        <div class="product-image">
+          <img :src="getImage(product)">
+        </div>
+        <div class="product-info">
+          <div class="color-box"
+            v-for="(variant, index) in product.variant"
+            :key="variant.variantId"
+            :style="{ backgroundColor: variant.color }"
+            @mouseover="updateProduct(product, index)"
+            >
+          </div>
+        </div>
+        <div class="product-price">
+          <h3>&euro;{{product.price}}</h3>
+        </div>
       </div>
     </div>
 </template>
@@ -31,26 +45,18 @@ export default {
       this.products = response.data.product
       return this.products
     },
-    check () {
-      console.log('products array is not empty')
+    updateProduct (product, index) {
+      product.SelectedVariant = index
+      console.log(product.SelectedVariant)
     },
-    updateProduct (index) {
-      this.SelectedVariant = index
-    },
-    async getImage (image) {
-      let img = await ProductService.fetchImage(image)
-      console.log(img)
-      return img
-    },
-    showProducts () {
-      let product = this.products.product
-      Array.from(product.prod).forEach(prod => {
-        console.log(prod)
-      })
-      console.log(product[0].brand)
-      if (product[0].brand === 'Vincero') {
-        return product
+    getImage (product) {
+      let img = ''
+      if (product.SelectedVariant == null) {
+        product.SelectedVariant = 0
       }
+      img = require('@/assets/img/' + product.variant[product.SelectedVariant].variantImage)
+      console.log(product.SelectedVariant)
+      return img
     }
   },
   created () {

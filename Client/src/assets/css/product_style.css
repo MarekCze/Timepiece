@@ -70,7 +70,7 @@ body {
   }
 
   .wrapper{
-    grid-column: 1 / -1;
+    grid-column: 2 / -2;
     display: flex;
     justify-content: space-around;
   }
@@ -193,6 +193,14 @@ body {
   }
 
   .product-name{
+    text-align: center;
+  }
+
+  .product-name h1{
+    margin-left: 0;
+  }
+
+  .product-price{
     text-align: center;
   }
 

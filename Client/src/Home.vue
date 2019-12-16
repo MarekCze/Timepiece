@@ -1,6 +1,8 @@
 <template>
 <main id="home">
+  <img class="banner" src="@/assets/img/vinceroBanner2.jpg">
   <product brand="Vincero"></product>
+  <img class="banner" src="@/assets/img/breguetBanner-White.jpg">
   <product brand="Breguet"></product>
 </main>
 </template>
