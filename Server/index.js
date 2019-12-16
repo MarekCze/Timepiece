@@ -19,8 +19,9 @@ const credentials = require('./credentials');
 
 
 const options = {
+    useNewUrlParser: true,
     server: {
-       socketOptions: { keepAlive: 1 } 
+       socketOptions: { keepAlive: 1 }
     }
 };
 
@@ -34,6 +35,10 @@ db.once("open", function(callback){
 const Watch = require('./models/watches');
 const Product = require('./models/Product');
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 84fdaf259d9b98cdc5e4f2e54fdaf4cf49c5e982
 app.get('/', function(req, res) {
 	res.json('home');
 });
@@ -65,6 +70,27 @@ app.get('/products', (req, res) => {
         }
     })       
 });
+
+app.get('/products/:brand', (req, res) => {
+    Product.find({brand: req.params.brand}, function (err, products) {       
+        try{
+            res.json({
+                product: products
+            });
+        } catch (err){
+            console.log(error)
+            return res.json('500')
+        }
+    })       
+});
+
+app.get('/products/:image', (req,res) => {
+    try{
+        res.sendFile(`/assets/img/${req.params.image}`)
+    } catch (err) {
+        console.log(err)
+    }
+})
 
 // 404 catch-all handler (middleware)
 app.use(function(req, res, next){
